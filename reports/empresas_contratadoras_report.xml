@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data>
+        <record model="ir.actions.report" id="empresas_contratadoras_reportes">
+            <field name="name">Reporte empresas_contratadoras</field>
+            <field name="model">proyecto_odoo_empresa.empresas_contratadoras</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">proyecto_odoo.empresas_contratadoras_report_template</field>
+            <field name="report_file">proyecto_odoo.empresas_contratadoras_report_template</field>
+            <field name="binding_model_id" ref="model_proyecto_odoo_empresa_empresas_contratadoras"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <record id="grupo_administrador" model="res.groups">
+            <field name="name">Administrador</field>
+        </record>
+        <record id="grupo_jefe" model="res.groups">
+            <field name="name">Jefe de proyecto</field>
+        </record>
+        <record id="grupo_analista" model="res.groups">
+            <field name="name">Analista</field>
+        </record>
+        <record id="grupo_programador" model="res.groups">
+            <field name="name">Programador</field>
+        </record>
+    </data>
+</odoo>

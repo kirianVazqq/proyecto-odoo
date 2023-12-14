@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+
+    <!-- EMPRESA -->
+    <record model="ir.ui.view" id="proyecto_odoo.empresas_contratadoras_tree">
+      <field name="name">proyecto_odoo.empresas_contratadoras.tree</field>
+      <field name="model">proyecto_odoo_empresa.empresas_contratadoras</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="empresa"/>
+          <field name="pago"/>
+          <field name="horas"/>
+          <field name="pago_total" groups="proyecto_odoo.grupo_operario"/>
+          <field name="description"/>
+          <field name="tipo_pago"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="proyecto_odoo.empresas_contratadoras_form">
+      <field name="name">proyecto_odoo.empresas_contratadoras.form</field>
+      <field name="model">proyecto_odoo_empresa.empresas_contratadoras</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="empresa"/>
+            <field name="pago"/>
+            <field name="horas"/>
+            <field name="pago_total"/>
+            <field name="description"/>
+            <field name="tipo_pago"/>
+            <field name="proyecto">
+              <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+              </tree>
+            </field>
+          </group>
+        </form>
+      </field>
+    </record>
+    
+  
+
+    <!-- Vista heredada para la entidad "project.project" -->
+    <record id="project_project_inherit" model="ir.ui.view">
+      <field name="name">project.project.inherit</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+          <field name="empresa_contratadora_id"/>
+        </xpath>
+      </field>
+    </record>
+    
+    
+    <record model="ir.actions.act_window" id="proyecto_odoo.empresas_contratadoras_action_window">
+      <field name="name">Crear empresa</field>
+      <field name="res_model">proyecto_odoo_empresa.empresas_contratadoras</field>
+      <field name="view_mode">tree,form</field>
+  </record>
+
+  <record model="ir.actions.act_window" id="proyecto_odoo.proyecto_action_window">
+    <field name="name">Crear proyecto</field>
+    <field name="res_model">project.project</field>
+    <field name="view_mode">tree,form</field>
+</record>
+  <record model="ir.actions.act_window" id="proyecto_odoo.tarea_action_window">
+    <field name="name">Crear tarea</field>
+    <field name="res_model">project.task</field>
+    <field name="view_mode">tree,form</field>
+</record>
+  
+
+    <menuitem name="Empresas contratadoras" id="proyecto_odoo.menu_root"/>
+    <menuitem name="Empresas contratadoras" id="empresas_contratadoras_menu" parent="proyecto_odoo.menu_root" action="proyecto_odoo.empresas_contratadoras_action_window"/>
+    <menuitem name="Proyecto" id="proyecto_odoo_menu_proyecto" parent="proyecto_odoo.menu_root" action="proyecto_odoo.proyecto_action_window"/>
+    <menuitem name="Tareas" id="proyecto_odoo_menu_tarea" parent="proyecto_odoo.menu_root" action="proyecto_odoo.tarea_action_window"/>
+  </data>
+</odoo> 

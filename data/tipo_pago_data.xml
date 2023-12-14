@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <record id="categoria_pago_fraccionado" model="project.tags">
+            <field name="name">Pago fraccionado</field>
+        </record>
+        <record id="categoria_pago_completo" model="project.tags">
+            <field name="name">Pago completo</field>
+        </record>
+    </data>
+</odoo>
